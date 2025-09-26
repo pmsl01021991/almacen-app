@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Almacén de Alimentos Suyon</title>
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/admin.js" defer></script>
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>📊 Dashboard</h2>
+    <ul>
+      <li><a href="#resumen">Resumen</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#pedidos">Pedidos</a></li>
+      <li><a href="#usuarios">Usuarios</a></li>
+      <li><a href="#reportes">Reportes</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header>
+      <button id="menuToggle" class="menu-btn">☰</button>
+      <h1>Dashboard</h1>
+      <div class="header-actions">
+        <a href="/logout" class="btn-logout">🚪 Cerrar Sesión</a>
+        <button id="darkToggle">🌙</button>
+        <div class="notifications">🔔 <span class="badge">3</span></div>
+        <div class="profile">
+          <img src="https://i.pravatar.cc/40" alt="Usuario">
+          <span>Admin</span>
+        </div>
+      </div>
+    </header>
+
+
+    <!-- Sección Resumen -->
+    <section id="resumen" class="cards">
+      <div class="card">
+        <h3>📦 Productos</h3>
+        <p>120 registrados</p>
+      </div>
+      <div class="card">
+        <h3>🚚 Pedidos</h3>
+        <p>45 en proceso</p>
+      </div>
+      <div class="card">
+        <h3>👤 Usuarios</h3>
+        <p>10 activos</p>
+      </div>
+      <div class="card">
+        <h3>💰 Ventas</h3>
+        <p>S/ 25,000</p>
+      </div>
+    </section>
+
+    <!-- Productos -->
+    <section id="productos">
+      <h2>Gestión de Productos</h2>
+      <button class="btn">➕ Agregar Productos</button>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-productos">
+          <!-- Aquí se insertarán los productos dinámicamente -->
+        </tbody>
+      </table>
+    </section>
+
+
+    <!-- Pedidos -->
+    <section id="pedidos">
+      <h2>Gestión de Pedidos</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Estado</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>101</td>
+            <td>Juan Pérez</td>
+            <td><span class="estado pendiente">Pendiente</span></td>
+            <td>2025-09-20</td>
+          </tr>
+          <tr>
+            <td>102</td>
+            <td>María López</td>
+            <td><span class="estado enviado">Enviado</span></td>
+            <td>2025-09-21</td>
+          </tr>
+          <tr>
+            <td>103</td>
+            <td>Carlos Díaz</td>
+            <td><span class="estado entregado">Entregado</span></td>
+            <td>2025-09-19</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Reportes -->
+    <section id="reportes">
+      <h2>Reportes</h2>
+      <canvas id="ventasChart"></canvas>
+      <canvas id="stockChart"></canvas>
+    </section>
+
+    <!-- Movimientos -->
+    <section id="movimientos">
+      <h2>📑 Historial de Movimientos</h2>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Producto</th>
+              <th>Tipo</th>
+              <th>Cantidad</th>
+              <th>Descripción</th>
+              <th>Fecha</th>
+              <th>Ruta / Estado</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-movimientos">
+            <tr>
+              <td colspan="7">Cargando movimientos...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+  </main>
+</body>
+</html>

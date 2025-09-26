@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recorrido del Camión</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // 📦 Coordenadas base (Almacén en Villa El Salvador)
+    const almacen = [-12.2409, -76.9349]; 
+
+    // 🔹 Leer destino desde la URL (?destino=...)
+    const params = new URLSearchParams(window.location.search);
+    let destino = params.get("destino");
+    let tipo = params.get("tipo") || "salida"; // por defecto salida
+
+    // 🔹 Diccionario de destinos
+    const DESTINOS = {
+        "Lince (Lima)": [-12.082, -77.036],
+        "Miraflores (Lima)": [-12.121, -77.030],
+        "San Juan de Lurigancho (Lima)": [-11.994, -76.991],
+        "Comas (Lima)": [-11.955, -77.050],
+        "Callao (Lima)": [-12.056, -77.118],
+        "Arequipa": [-16.409, -71.537],
+        "Cusco": [-13.532, -71.967],
+        "Trujillo": [-8.111, -79.028],
+        "Chiclayo": [-6.771, -79.840],
+        "Piura": [-5.194, -80.632]
+    };
+
+    // 🔹 Si el destino no existe en el diccionario → elegir uno aleatorio
+    let destinoCoords = DESTINOS[destino];
+    if (!destinoCoords) {
+        const keys = Object.keys(DESTINOS);
+        destino = keys[Math.floor(Math.random() * keys.length)];
+        destinoCoords = DESTINOS[destino];
+    }
+
+    // Inicializar mapa
+    const map = L.map('map');
+
+    // Tiles de OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // Marcadores
+    L.marker(almacen).addTo(map).bindPopup("📦 Almacén Villa El Salvador");
+    L.marker(destinoCoords).addTo(map).bindPopup("📍 " + destino);
+
+    // 👉 Nuevo código: definir inicio y fin dinámicos
+    const inicio = tipo === "entrada" ? destinoCoords : almacen;
+    const fin = tipo === "entrada" ? almacen : destinoCoords;
+
+    // Dibujar la ruta (ida o regreso)
+    const route = L.polyline([inicio, fin], { color: 'blue' }).addTo(map);
+    map.fitBounds(route.getBounds());
+
+    // 🚛 Camión
+    const camion = L.marker(inicio, {
+      icon: L.icon({
+        iconUrl: "https://cdn-icons-png.flaticon.com/512/1995/1995521.png",
+        iconSize: [40, 40]
+      })
+    }).addTo(map);
+
+    // Duración según destino (30s para distritos de Lima, 50s para provincias)
+    const duracion = destino.includes("(Lima)") ? 30 : 50;
+
+
+    // Animación del camión
+    let step = 0;
+    const steps = 200;
+    const intervaloTiempo = (duracion * 1000) / steps; // ms entre pasos
+
+    const latStep = (fin[0] - inicio[0]) / steps;
+    const lngStep = (fin[1] - inicio[1]) / steps;
+
+
+    const interval = setInterval(() => {
+      step++;
+      const lat = inicio[0] + latStep * step;
+      const lng = inicio[1] + lngStep * step;
+      camion.setLatLng([lat, lng]);
+
+      if (step >= steps) {
+        clearInterval(interval);
+        camion.bindPopup("✅ Llegó a " + (tipo === "entrada" ? "Almacén (Villa El Salvador)" : destino)).openPopup();
+      }
+    }, intervaloTiempo);
+
+  </script>
+
+
+</body>
+</html>

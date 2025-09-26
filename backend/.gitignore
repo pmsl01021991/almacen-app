@@ -1,0 +1,25 @@
+# ========================
+# Node
+# ========================
+node_modules/
+.env
+ca.pem
+*.log
+
+# ========================
+# Logs
+# ========================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ========================
+# Sistema operativo
+# ========================
+.DS_Store
+Thumbs.db
+
+# ========================
+# Vercel / despliegue
+# ========================
+.vercel

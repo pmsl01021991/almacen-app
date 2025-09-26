@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operaciones - Almacén de Alimentos Suyon</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/operaciones.css">
+  <script src="js/operaciones.js" defer></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <!-- SLIDER -->
+    <div class="slider">
+      <div class="slides">
+        <img src="imagenes/almacen1.jpg" alt="Almacén vista general" class="active">
+        <img src="imagenes/almacen2.jpg" alt="Área de refrigerados">
+        <img src="imagenes/almacen3.jpg" alt="Camiones de despacho">
+      </div>
+    </div>
+
+    <h1>Operaciones</h1>
+    <nav>
+      <div class="menu-toggle" id="menu-toggle">
+        ☰
+      </div>
+      <ul id="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="empresa.html">Empresa</a></li>
+        <li><a href="areas.html">Áreas de Trabajo</a></li>
+        <li><a href="logistica.html">Logística</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- Botón modo oscuro -->
+  <button id="darkToggle">🌙</button>
+  
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <!-- Intro -->
+    <section class="intro">
+      <h2>📦 Nuestras Operaciones</h2>
+      <p>El almacén cuenta con distintas áreas que garantizan el correcto manejo de los productos, manteniendo la calidad, frescura y seguridad en cada etapa.</p>
+    </section>
+
+    <!-- TARJETAS DE OPERACIONES -->
+    <section class="cards-container">
+      <div class="card refrigerados">
+        <span class="card-icon">❄️</span>
+        <h3>Área de Refrigerados</h3>
+        <p>Productos como embutidos, yogures, verduras frescas y más se almacenan en cámaras de frío controlado para preservar su calidad.</p>
+        <img src="imagenes/refrigerados.jpg" alt="Área de Refrigerados">
+      </div>
+
+      <div class="card picking">
+        <span class="card-icon">📋</span>
+        <h3>Área de Picking & Packing</h3>
+        <p>Aquí se realiza la preparación de pedidos, el empaquetado eficiente y el control de calidad antes del envío.</p>
+        <img src="imagenes/picking.jpg" alt="Área de Picking y Packing">
+      </div>
+
+      <div class="card despacho">
+        <span class="card-icon">🚛</span>
+        <h3>Área de Despacho</h3>
+        <p>Organización de cargas y despacho a nivel nacional, asegurando que cada pedido llegue puntual a su destino.</p>
+        <img src="imagenes/despacho.jpg" alt="Área de Despacho">
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="timeline">
+      <h2>🕒 Flujo de Operaciones</h2>
+      <div class="timeline-container">
+        <div class="timeline-item"><span>1</span><p>Ingreso y control de productos</p></div>
+        <div class="timeline-item"><span>2</span><p>Almacenamiento en cámaras y zonas asignadas</p></div>
+        <div class="timeline-item"><span>3</span><p>Picking & Packing según pedido</p></div>
+        <div class="timeline-item"><span>4</span><p>Despacho y distribución nacional</p></div>
+      </div>
+    </section>
+
+    <!-- MÉTRICAS -->
+    <section class="metrics">
+      <h2>📊 Nuestras Cifras</h2>
+      <div class="metrics-container">
+        <div class="metric">
+          <h3 class="counter" data-target="2500">0</h3>
+          <p>Pedidos procesados diarios</p>
+        </div>
+        <div class="metric">
+          <h3 class="counter" data-target="98">0</h3>
+          <p>% Puntualidad en entregas</p>
+        </div>
+        <div class="metric">
+          <h3 class="counter" data-target="500">0</h3>
+          <p>Toneladas movidas al mes</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="testimonios">
+      <h2>👩‍🏭 Nuestro Equipo</h2>
+      <div class="testimonios-container">
+        <div class="testimonio">
+          <img src="imagenes/empleado1.jpg" alt="Empleado 1">
+          <p>"Trabajar en el área de picking es un reto diario, pero sabemos que contribuimos al bienestar de miles de familias."</p>
+          <h4>- Juan Pérez</h4>
+        </div>
+        <div class="testimonio">
+          <img src="imagenes/empleado2.jpg" alt="Empleado 2">
+          <p>"Nuestro compromiso es mantener los productos siempre frescos y listos para su distribución."</p>
+          <h4>- María Gómez</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section class="galeria">
+      <h2>📸 Galería de Operaciones</h2>
+      <div class="galeria-container">
+        <img src="imagenes/op1.jpg" alt="Operación 1">
+        <img src="imagenes/op2.jpg" alt="Operación 2">
+        <img src="imagenes/op3.jpg" alt="Operación 3">
+        <img src="imagenes/op4.jpg" alt="Operación 4">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+  <div class="footer-container">
+    <!-- Columna 1: Información de la empresa -->
+    <div class="footer-about">
+      <img src="imagenes/logo.png" alt="Logo Empresa" class="footer-logo">
+      <p>
+        Somos un almacén de alimentos con más de 10 años de experiencia, 
+        comprometidos en brindar un servicio de calidad asegurando la 
+        satisfacción de nuestros clientes en todo el Perú.
+      </p>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <!-- Columna 2: Galería -->
+    <div class="footer-gallery">
+      <h3>Galería</h3>
+      <div class="gallery-grid">
+        <img src="imagenes/galeria1.jpg" alt="Foto 1">
+        <img src="imagenes/galeria2.jpg" alt="Foto 2">
+        <img src="imagenes/galeria3.jpg" alt="Foto 3">
+        <img src="imagenes/galeria4.jpg" alt="Foto 4">
+        <img src="imagenes/galeria5.jpg" alt="Foto 5">
+        <img src="imagenes/galeria6.jpg" alt="Foto 6">
+      </div>
+    </div>
+
+    <!-- Columna 3: Contacto -->
+    <div class="footer-contact">
+      <h3>Contáctenos</h3>
+      <p><i class="fas fa-phone"></i> (01) 494-3803</p>
+      <p><i class="fas fa-envelope"></i> info@almacen.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> Calle Gran Bretaña 180 - Lima, Perú</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Almacén de Alimentos Suyon | Todos los derechos reservados</p>
+  </div>
+</footer>
+</body>
+</html>

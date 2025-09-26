@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Almacén de Alimentos Suyon</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/contacto.css">
+  <script src="js/contacto.js" defer></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <!-- SLIDER -->
+    <div class="slider">
+      <div class="slides">
+        <img src="imagenes/almacen1.jpg" alt="Almacén vista general" class="active">
+        <img src="imagenes/almacen2.jpg" alt="Área de refrigerados">
+        <img src="imagenes/almacen3.jpg" alt="Camiones de despacho">
+      </div>
+    </div>
+
+    <h1>Contacto</h1>
+    <nav>
+      <div class="menu-toggle" id="menu-toggle">
+        ☰
+      </div>
+      <ul id="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="empresa.html">Empresa</a></li>
+        <li><a href="areas.html">Áreas de Trabajo</a></li>
+        <li><a href="operaciones.html">Operaciones</a></li>
+        <li><a href="logistica.html">Logística</a></li>
+      </ul>
+    </nav>
+
+    <!-- Botón modo oscuro -->
+  <button id="darkToggle">🌙</button>
+
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <section class="intro">
+      <h2>📩 Contáctanos</h2>
+      <p>¿Tienes alguna consulta o deseas trabajar con nosotros? Completa el formulario o usa nuestros canales directos de contacto.</p>
+    </section>
+
+    <!-- FORMULARIO -->
+    <section class="form-container">
+      <form id="contactForm">
+        <label for="nombre">👤 Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="email">📧 Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="telefono">📞 Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono">
+
+        <label for="asunto">📝 Asunto:</label>
+        <input type="text" id="asunto" name="asunto" required>
+
+        <label for="mensaje">💬 Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <!-- INFORMACIÓN DE CONTACTO -->
+    <section class="info-contacto">
+      <h2>📍 Nuestra Ubicación</h2>
+      <p><strong>Dirección:</strong> Av. Principal 123, Lima - Perú</p>
+      <p><strong>Teléfono:</strong> (01) 456-7890</p>
+      <p><strong>Email:</strong> contacto@suyon.com</p>
+    </section>
+
+    <!-- MAPA -->
+    <section class="mapa">
+      <h2>🗺️ Encuéntranos en Google Maps</h2>
+      <div class="mapa-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.749680610835!2d-77.0428!3d-12.0464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8b073bcd6c5%3A0x1e7bbf6ec1345ca9!2sPlaza%20de%20Armas%20de%20Lima!5e0!3m2!1ses!2spe!4v1700000000000!5m2!1ses!2spe" 
+          width="100%" 
+          height="400" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <!-- FOOTER -->
+  <footer>
+  <div class="footer-container">
+    <!-- Columna 1: Información de la empresa -->
+    <div class="footer-about">
+      <img src="imagenes/logo.png" alt="Logo Empresa" class="footer-logo">
+      <p>
+        Somos un almacén de alimentos con más de 10 años de experiencia, 
+        comprometidos en brindar un servicio de calidad asegurando la 
+        satisfacción de nuestros clientes en todo el Perú.
+      </p>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <!-- Columna 2: Galería -->
+    <div class="footer-gallery">
+      <h3>Galería</h3>
+      <div class="gallery-grid">
+        <img src="imagenes/galeria1.jpg" alt="Foto 1">
+        <img src="imagenes/galeria2.jpg" alt="Foto 2">
+        <img src="imagenes/galeria3.jpg" alt="Foto 3">
+        <img src="imagenes/galeria4.jpg" alt="Foto 4">
+        <img src="imagenes/galeria5.jpg" alt="Foto 5">
+        <img src="imagenes/galeria6.jpg" alt="Foto 6">
+      </div>
+    </div>
+
+    <!-- Columna 3: Contacto -->
+    <div class="footer-contact">
+      <h3>Contáctenos</h3>
+      <p><i class="fas fa-phone"></i> (01) 494-3803</p>
+      <p><i class="fas fa-envelope"></i> info@almacen.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> Calle Gran Bretaña 180 - Lima, Perú</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Almacén de Alimentos Suyon | Todos los derechos reservados</p>
+  </div>
+</footer>
+</body>
+</html>

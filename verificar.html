@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificación 2FA - Almacén</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>🔐 Verificación en Dos Pasos</h2>
+    <p class="subtitle">
+      Hemos enviado un código de 6 dígitos a tu correo electrónico.  
+      Ingrésalo para continuar.
+    </p>
+
+    <form action="/verificar" method="POST">
+      <label for="codigo">Código recibido:</label>
+      <input type="text" id="codigo" name="codigo" maxlength="6" required placeholder="Ej: 123456">
+
+      <button type="submit">Verificar</button>
+    </form>
+
+    <p class="note">
+      ¿No recibiste el código? <a href="/login.html">Volver a intentar</a>
+    </p>
+  </div>
+</body>
+</html>
