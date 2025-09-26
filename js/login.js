@@ -1,3 +1,5 @@
+import { API_URL } from "./config.js"; // 👈 importar config.js
+
 document.getElementById("LoginForm").addEventListener("submit", async function(e) {
   e.preventDefault();
 
@@ -10,9 +12,10 @@ document.getElementById("LoginForm").addEventListener("submit", async function(e
   const usuario = document.getElementById("usuario").value;
   const password = document.getElementById("password").value;
 
-  const response = await fetch(`${API_URL}/verify-recaptcha`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
+  const response = await fetch(`${API_URL}/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include", // 👈 necesario para sesiones
     body: JSON.stringify({
       usuario,
       password,

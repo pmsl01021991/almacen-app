@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/admin", "destination": "https://almacen-backend-1.onrender.com/admin" }
+  ]
+}

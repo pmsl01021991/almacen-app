@@ -6,6 +6,7 @@ import fetch from "node-fetch";
 import nodemailer from "nodemailer";
 import path from "path";
 import { fileURLToPath } from "url";
+import cors from "cors"; // 👈 agregado
 import db from "./db.js";   // 👈 conexión a BD
 import "./jobs/simulacion.js"; // 👈 cron jobs
 
@@ -14,13 +15,36 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// =========================
+// CONFIGURAR CORS
+// =========================
+app.use(cors({
+  origin: [
+    "http://localhost:3000",              // desarrollo
+    "https://almacen-app.vercel.app"      // producción en Vercel
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true
+}));
+
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// =========================
+// SESIONES
+// =========================
+app.set("trust proxy", 1); // necesario en Render
+
 app.use(session({
-  secret: "clave-super-secreta",
+  secret: process.env.SESSION_SECRET || "clave-super-secreta",
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie: {
+    secure: process.env.NODE_ENV === "production", // true en Render (https)
+    httpOnly: true,
+    sameSite: "none" // ⚡ necesario para compartir cookies entre dominios
+  }
 }));
 
 // Servir archivos frontend
@@ -159,7 +183,6 @@ app.get("/api/movimientos", async (req, res) => {
   }
 });
 
-
 // =========================
 // VERIFICACIÓN 2FA
 // =========================
@@ -167,7 +190,6 @@ app.post("/verificar", (req, res) => {
   const { codigo } = req.body;
 
   if (parseInt(codigo) === req.session.codigo2FA) {
-    // Guardamos la sesión de usuario como válida
     req.session.user = req.session.userTemp;
     delete req.session.codigo2FA;
     delete req.session.userTemp;
@@ -177,16 +199,13 @@ app.post("/verificar", (req, res) => {
   }
 });
 
-
 // =========================
 // RUTA PARA ADMIN DASHBOARD
 // =========================
 app.get("/admin", (req, res) => {
   if (req.session.user) {
-    // Si el usuario ya pasó login + 2FA
     res.sendFile(path.join(__dirname, "..", "privado", "admin.html"));
   } else {
-    // Si no está logueado lo mandamos a login
     res.redirect("/login.html");
   }
 });
@@ -197,10 +216,3 @@ app.get("/admin", (req, res) => {
 app.listen(process.env.PORT || 3000, () => {
   console.log(`✅ Servidor corriendo en http://localhost:${process.env.PORT || 3000}`);
 });
-
-
-
-
-
-
-
