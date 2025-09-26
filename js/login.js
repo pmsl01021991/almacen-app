@@ -10,7 +10,7 @@ document.getElementById("LoginForm").addEventListener("submit", async function(e
   const usuario = document.getElementById("usuario").value;
   const password = document.getElementById("password").value;
 
-  const response = await fetch("http://localhost:3001/verify-recaptcha", {
+  const response = await fetch(`${API_URL}/verify-recaptcha`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

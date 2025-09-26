@@ -1,3 +1,4 @@
+import { API_URL } from "./config.js";
 // =======================
 // DARK MODE MANAGER
 // =======================
@@ -105,7 +106,7 @@ class DataManager {
   // ====== Cargar Productos ======
   static async cargarProductos() {
     try {
-      const res = await fetch("/api/productos");
+      const res = await fetch(`${API_URL}/api/productos`);
       const productos = await res.json();
 
       const tbody = document.getElementById("tabla-productos");
@@ -128,7 +129,7 @@ class DataManager {
   // ====== Cargar Movimientos ======
   static async cargarMovimientos() {
       try {
-        const res = await fetch("/api/movimientos");
+        const res = await fetch(`${API_URL}/api/movimientos`);
         const movimientos = await res.json();
 
         const tbody = document.getElementById("tabla-movimientos");
